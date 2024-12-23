@@ -3,6 +3,9 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 
+# https://github.com/ArjanCodes/examples/blob/main/2024/sqlalchemy/oop_approach.py
+
+
 # SQLite database file (stored locally in the project directory)
 DATABASE_URL = "sqlite:///./conversational_ai_with_fastapi.db"
 
