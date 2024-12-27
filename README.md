@@ -2,6 +2,31 @@
 
 This project is a backend system for a conversational AI platform using FastAPI, SQLAlchemy ORM, and GPT-based models. The system is designed to handle message processing, document management, and AI response generation for food and weather queries.
 
+## Project Structure
+
+The project is organized as follows:
+
+- **`app/`**: Core application code.
+  - **`models/`**: SQLAlchemy ORM models.
+    - `__init__.py`: Initializes models.
+    - `document.py`: Document model.
+    - `documentPage.py`: DocumentPage model.
+    - `message.py`: Message model.
+  - **`routers/`**: API endpoints for CRUD operations.
+    - `__init__.py`: Initializes routers.
+    - `documents.py`: Endpoints for document-related operations.
+    - `messages.py`: Endpoints for message-related operations.
+  - **`schemas/`**: Pydantic models for data validation.
+    - `documentSchema.py`: Schema for document operations.
+    - `messageSchema.py`: Schema for message operations.
+  - **`utils/`**: Helper functions and utilities.
+    - `classification.py`: Classifies messages as "food" or "weather" using GPT-4o.
+    - `db.py`: Database engine setup and `get_db` helper.
+    - `weather.py`: Fetches weather data and generates natural language responses using GPT-4o.
+
+- **`migrations/`**: Database migrations (if applicable).
+
+
 ## Current Progress
 
 ### 1. **API Endpoints**:
