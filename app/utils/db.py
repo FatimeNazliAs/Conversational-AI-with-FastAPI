@@ -7,16 +7,13 @@ from sqlalchemy.ext.declarative import declarative_base
 
 
 # SQLite database file (stored locally in the project directory)
-DATABASE_URL = "sqlite:///./conversational_ai_with_fastapi.db"
+DATABASE_URL = "sqlite:///./test.db"
 
 # Create database engine
-engine = create_engine(
-    # SQLite-specific flag
-    DATABASE_URL,
-    connect_args={"check_same_thread": False},
-)
+engine = create_engine(DATABASE_URL,  connect_args={"check_same_thread": False})
 
-# Create a session factory
+# represent a workspace for your application to interact with the database.
+# autocommit->make sure changes are not automatically saved to db
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Create a base class for models
@@ -24,10 +21,9 @@ Base = declarative_base()
 
 
 def get_db():
-    """
-    Dependency function to get the database session.
-    This will be used in FastAPI dependency injection.
-    """
+    # create a new database session and sends it to the client and the session closes itself when the work is done.
+    # This function ensures each request has it’s independent database connections.
+
     db = SessionLocal()
     try:
         yield db
