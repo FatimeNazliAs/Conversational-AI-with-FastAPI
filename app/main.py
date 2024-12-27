@@ -1,10 +1,11 @@
+from app.utils.db import Base, engine
 from fastapi import FastAPI
+from app.routers.messages import message_router
+from app.routers.documents import document_router
 
-# Initialize the FastAPI app
 app = FastAPI()
 
+Base.metadata.create_all(bind=engine)
 
-# Define a test route
-@app.get("/")
-def read_root():
-    return {"message": "Hello, World!"}
+app.include_router(message_router, prefix="/api")
+app.include_router(document_router, prefix="/api")
