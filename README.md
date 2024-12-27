@@ -42,7 +42,7 @@ This project is a backend system for a conversational AI platform using FastAPI,
 
 ### 1. Clone the repository:
 ```bash
-git clone https://github.com/FatimeNazliAs/Conversational-AI-with-FastAPI
+https://github.com/FatimeNazliAs/Conversational-AI-with-FastAPI.git
 
 ```
 
